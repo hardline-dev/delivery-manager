@@ -9,8 +9,70 @@
     <title>Cargo Delivery Manager</title>
 </head>
 <body>
-    <div>
-        {% block content %}{% endblock %}
+    <div class="row m-3">
+        <div class="col-1 bg-dark rounded p-3 me-3" style="width:220px; height: calc(100vh - 35px);">
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link active" aria-current="page" href="{% url 'main_page' %}">Main</a>
+                <a class="nav-link" href="#">Garages</a>
+                <a class="nav-link" href="#">Trucks</a>
+                <a class="nav-link disabled">Disabled</a>
+            </nav>
+        </div>
+    
+        <div class="col">
+            <div class="row bg-dark text-light rounded p-3 mb-3">
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <div class="text-end">hardline</div>
+                    </div>
+                    <div class="ms-2" style="width: 50px; height: 50px;">
+                        <img class="d-block mw-100 mh-100 rounded border" src="https://i.guim.co.uk/img/media/5000f4c33ca07594f225c7301a7e40eb8c29b1cb/1643_4674_4460_2676/master/4460.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=9ab62d1eb5079254fc9a79114babbaef">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row bg-dark rounded p-3 text-light">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="col-2 ms-3" style="width: 350px;">
+            <div class="row bg-dark text-light rounded p-3 mb-3">
+                <div class="h5 text-center text-uppercase mb-3">Personal status</div>
+                <div class="row">
+                    <div class="col-1" style="width: 120px; height: 120px;">
+                        <img class="row mw-100 mh-100 rounded border" src="https://i.guim.co.uk/img/media/5000f4c33ca07594f225c7301a7e40eb8c29b1cb/1643_4674_4460_2676/master/4460.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=9ab62d1eb5079254fc9a79114babbaef">
+                    </div>
+                    <div class="col g-0">
+                        {% for user in users %}
+                            <span class="row fw-semibold">{{ user.first_name }} {{ user.last_name }}</span>
+                            <span class="row">Newbie</span>
+                            <span class="row">Level 1 ({{ user.experience }} XP)</span>
+                            <span class="row">Rating: {{ user.rating }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row bg-dark text-light rounded p-3">
+                <div class="h5 text-center text-uppercase mb-3">Company status</div>
+                <div class="row">
+                    <div class="col-1" style="width: 120px; height: 120px;">
+                        <img class="row mw-100 mh-100 rounded border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUiKHSLC25kHB4pjNOxj_Gn590VnLmLeYuYcvgYQs8GuAfD2VpV_5XTGHEODxO291gjzg&usqp=CAU">
+                    </div>
+                    <div class="col g-0">
+                        {% for company in companies %}
+                            <span class="row fw-semibold">{{ company.name }}</span>
+                            <div class="col">
+                                <span class="row d-inline">Money:<span class="text-warning">${{ company.money }}</span></span>
+                            </div>
+                            <span class="row">Garages count: 0</span>
+                            <span class="row">Trucks count: 0</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
