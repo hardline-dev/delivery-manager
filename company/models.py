@@ -10,3 +10,6 @@ class Company(models.Model):
     class Meta:
         verbose_name = 'company'
         verbose_name_plural = 'companies'
+
+    def __str__(self):
+        return f'{self.name}'
