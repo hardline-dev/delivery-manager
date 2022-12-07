@@ -13,8 +13,8 @@ class City(models.Model):
 
 
 class Distance(models.Model):
-    sender = models.OneToOneField(City, on_delete=models.CASCADE, related_name='sender')
-    receiver = models.OneToOneField(City, on_delete=models.CASCADE, related_name='receiver')
+    sender = models.ForeignKey(City, on_delete=models.CASCADE, related_name='sender')
+    receiver = models.ForeignKey(City, on_delete=models.CASCADE, related_name='receiver')
     distance = models.IntegerField(('distance'))
 
     class Meta:

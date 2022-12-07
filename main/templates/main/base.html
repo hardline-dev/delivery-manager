@@ -45,12 +45,10 @@
                         <img class="row mw-100 mh-100 rounded border" src="https://i.guim.co.uk/img/media/5000f4c33ca07594f225c7301a7e40eb8c29b1cb/1643_4674_4460_2676/master/4460.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=9ab62d1eb5079254fc9a79114babbaef">
                     </div>
                     <div class="col g-0">
-                        {% for user in users %}
-                            <span class="row fw-semibold">{{ user.first_name }} {{ user.last_name }}</span>
-                            <span class="row">Newbie</span>
-                            <span class="row">Level 1 ({{ user.experience }} XP)</span>
-                            <span class="row">Rating: {{ user.rating }}</span>
-                        {% endfor %}
+                        <span class="row fw-semibold">{{ user.first_name }} {{ user.last_name }}</span>
+                        <span class="row">Newbie</span>
+                        <span class="row">Level 1 ({{ user.experience }} XP)</span>
+                        <span class="row">Rating: {{ user.rating }}</span>
                     </div>
                 </div>
             </div>
@@ -62,14 +60,12 @@
                         <img class="row mw-100 mh-100 rounded border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUiKHSLC25kHB4pjNOxj_Gn590VnLmLeYuYcvgYQs8GuAfD2VpV_5XTGHEODxO291gjzg&usqp=CAU">
                     </div>
                     <div class="col g-0">
-                        {% for company in companies %}
-                            <span class="row fw-semibold">{{ company.name }}</span>
-                            <div class="col">
-                                <span class="row d-inline">Money:<span class="text-warning">${{ company.money }}</span></span>
-                            </div>
-                            <span class="row">Garages count: 0</span>
-                            <span class="row">Trucks count: 0</span>
-                        {% endfor %}
+                        <span class="row fw-semibold">{{ company.name }}</span>
+                        <div class="col">
+                            <span class="row d-inline">Money:<span class="text-warning">${{ company.money }}</span></span>
+                        </div>
+                        <span class="row">Garages count: 0</span>
+                        <span class="row">Trucks count: 0</span>
                     </div>
                 </div>
             </div>
