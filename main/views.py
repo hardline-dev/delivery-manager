@@ -8,10 +8,14 @@ from .forms import SignupForm
 @login_required
 def index(request):
     user = User.objects.get(id=request.user.id)
-    company = Company.objects.get(user=user)
+    
+    try:
+        company = Company.objects.get(user_id=user.id)
+    except:
+        company = None
 
     return render(request, 'main/base.html', {
-        'company': user, 
+        'user': user, 
         'company': company
     })
 
